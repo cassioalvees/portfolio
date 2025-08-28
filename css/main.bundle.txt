@@ -1,0 +1,1958 @@
+/*!
+ * Bootstrap Grid v5.2.2 (https://getbootstrap.com/)
+ * Copyright 2011-2022 The Bootstrap Authors
+ * Copyright 2011-2022 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+:root {
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-black: #000;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40;
+    --bs-gray-100: #f8f9fa;
+    --bs-gray-200: #e9ecef;
+    --bs-gray-300: #dee2e6;
+    --bs-gray-400: #ced4da;
+    --bs-gray-500: #adb5bd;
+    --bs-gray-600: #6c757d;
+    --bs-gray-700: #495057;
+    --bs-gray-800: #343a40;
+    --bs-gray-900: #212529;
+    --bs-primary: #0d6efd;
+    --bs-secondary: #6c757d;
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+    --bs-primary-rgb: 13, 110, 253;
+    --bs-secondary-rgb: 108, 117, 125;
+    --bs-success-rgb: 25, 135, 84;
+    --bs-info-rgb: 13, 202, 240;
+    --bs-warning-rgb: 255, 193, 7;
+    --bs-danger-rgb: 220, 53, 69;
+    --bs-light-rgb: 248, 249, 250;
+    --bs-dark-rgb: 33, 37, 41;
+    --bs-white-rgb: 255, 255, 255;
+    --bs-black-rgb: 0, 0, 0;
+    --bs-body-color-rgb: 33, 37, 41;
+    --bs-body-bg-rgb: 255, 255, 255;
+    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0));
+    --bs-body-font-family: var(--bs-font-sans-serif);
+    --bs-body-font-size: 1rem;
+    --bs-body-font-weight: 400;
+    --bs-body-line-height: 1.5;
+    --bs-body-color: #212529;
+    --bs-body-bg: #fff;
+    --bs-border-width: 1px;
+    --bs-border-style: solid;
+    --bs-border-color: #dee2e6;
+    --bs-border-color-translucent: rgba(0, 0, 0, .175);
+    --bs-border-radius: .375rem;
+    --bs-border-radius-sm: .25rem;
+    --bs-border-radius-lg: .5rem;
+    --bs-border-radius-xl: 1rem;
+    --bs-border-radius-2xl: 2rem;
+    --bs-border-radius-pill: 50rem;
+    --bs-link-color: #0d6efd;
+    --bs-link-hover-color: #0a58ca;
+    --bs-code-color: #d63384;
+    --bs-highlight-bg: #fff3cd
+}
+
+.container,
+.container-fluid,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl,
+.container-xxl {
+    --bs-gutter-x: 30px;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: var(--bs-gutter-x);
+    padding-left: var(--bs-gutter-x);
+    margin-right: auto;
+    margin-left: auto
+}
+
+@media screen and (max-width:768px) {
+
+    .container,
+    .container-fluid,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .container-xl,
+    .container-xxl {
+        --bs-gutter-x: 15px
+    }
+}
+
+@media (min-width:576px) {
+
+    .container,
+    .container-sm {
+        max-width: 100%
+    }
+}
+
+@media (min-width:768px) {
+
+    .container,
+    .container-sm,
+    .container-md {
+        max-width: 100%
+    }
+}
+
+@media (min-width:992px) {
+
+    .container,
+    .container-sm,
+    .container-md,
+    .container-lg {
+        max-width: 1200px
+    }
+}
+
+@media (min-width:1200px) {
+
+    .container,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .container-xl {
+        max-width: 1200px
+    }
+}
+
+@media (min-width:1400px) {
+
+    .container,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .container-xl,
+    .container-xxl {
+        max-width: 1300px
+    }
+}
+
+.row {
+    --bs-gutter-x: 30px;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x))
+}
+
+.row>* {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-top: var(--bs-gutter-y)
+}
+
+.col {
+    flex: 1 0 0%
+}
+
+.col-auto {
+    flex: 0 0 auto;
+    width: auto
+}
+
+.col-1 {
+    flex: 0 0 auto;
+    width: 8.33333333%
+}
+
+.col-2 {
+    flex: 0 0 auto;
+    width: 16.66666667%
+}
+
+.col-3 {
+    flex: 0 0 auto;
+    width: 25%
+}
+
+.col-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%
+}
+
+.col-5 {
+    flex: 0 0 auto;
+    width: 41.66666667%
+}
+
+.col-6 {
+    flex: 0 0 auto;
+    width: 50%
+}
+
+.col-7 {
+    flex: 0 0 auto;
+    width: 58.33333333%
+}
+
+.col-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%
+}
+
+.col-9 {
+    flex: 0 0 auto;
+    width: 75%
+}
+
+.col-10 {
+    flex: 0 0 auto;
+    width: 83.33333333%
+}
+
+.col-11 {
+    flex: 0 0 auto;
+    width: 91.66666667%
+}
+
+.col-12 {
+    flex: 0 0 auto;
+    width: 100%
+}
+
+@media (min-width:768px) {
+    .col-md-6 {
+        flex: 0 0 auto;
+        width: 50%
+    }
+
+    .col-md-7 {
+        flex: 0 0 auto;
+        width: 58.33333333%
+    }
+}
+
+@media (min-width:992px) {
+    .col-lg-4 {
+        flex: 0 0 auto;
+        width: 33.33333333%
+    }
+
+    .col-lg-6 {
+        flex: 0 0 auto;
+        width: 50%
+    }
+}
+
+/*!
+ * Font Awesome Pro 5.14.0 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license (Commercial License)
+ */
+.fa,
+.fab,
+.fal,
+.far,
+.fas {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1
+}
+
+.fa-lg {
+    font-size: 1.33333em;
+    line-height: .75em;
+    vertical-align: -.0667em
+}
+
+.fa-fw {
+    text-align: center;
+    width: 1.25em
+}
+
+.fa-ul {
+    list-style-type: none;
+    margin-left: 2.5em;
+    padding-left: 0
+}
+
+.fa-ul>li {
+    position: relative
+}
+
+.fa-li {
+    left: -2em;
+    position: absolute;
+    text-align: center;
+    width: 2em;
+    line-height: inherit
+}
+
+.fa-pull-right {
+    float: right
+}
+
+.fa.fa-pull-right,
+.fab.fa-pull-right,
+.fal.fa-pull-right,
+.far.fa-pull-right,
+.fas.fa-pull-right {
+    margin-left: .3em
+}
+
+.fa-spin {
+    -webkit-animation: fa-spin 2s infinite linear;
+    animation: fa-spin 2s infinite linear
+}
+
+@-webkit-keyframes fa-spin {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes fa-spin {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+.fa-arrow-down:before {
+    content: "\f063"
+}
+
+.fa-instagram:before {
+    content: "\f16d"
+}
+
+.fa-linkedin-in:before {
+    content: "\f0e1"
+}
+
+.fa-behance:before {
+    content: "\f1b4"
+}
+
+.fa-arrow-up:before {
+    content: "\f062"
+}
+
+@font-face {
+    font-family: 'Font Awesome 5 Brands';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url(font-awesome/fa-brands-400.eot);
+    src: url(font-awesome/fa-brands-400.eot?#iefix) format("embedded-opentype"), url(font-awesome/fa-brands-400.woff2) format("woff2"), url(font-awesome/fa-brands-400.woff) format("woff"), url(font-awesome/fa-brands-400.ttf) format("truetype"), url(font-awesome/fa-brands-400.svg#fontawesome) format("svg")
+}
+
+.fab {
+    font-family: 'Font Awesome 5 Brands';
+    font-weight: 400
+}
+
+@font-face {
+    font-family: 'Font Awesome 5 Pro';
+    font-style: normal;
+    font-weight: 300;
+    font-display: block;
+    src: url(font-awesome/fa-light-300.eot);
+    src: url(font-awesome/fa-light-300.eot?#iefix) format("embedded-opentype"), url(font-awesome/fa-light-300.woff2) format("woff2"), url(font-awesome/fa-light-300.woff) format("woff"), url(font-awesome/fa-light-300.ttf) format("truetype"), url(font-awesome/fa-light-300.svg#fontawesome) format("svg")
+}
+
+.fal {
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: 300
+}
+
+@font-face {
+    font-family: 'Font Awesome 5 Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url(font-awesome/fa-regular-400.eot);
+    src: url(font-awesome/fa-regular-400.eot?#iefix) format("embedded-opentype"), url(font-awesome/fa-regular-400.woff2) format("woff2"), url(font-awesome/fa-regular-400.woff) format("woff"), url(font-awesome/fa-regular-400.ttf) format("truetype"), url(font-awesome/fa-regular-400.svg#fontawesome) format("svg")
+}
+
+.far {
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: 400
+}
+
+@font-face {
+    font-family: 'Font Awesome 5 Pro';
+    font-style: normal;
+    font-weight: 900;
+    font-display: block;
+    src: url(font-awesome/fa-solid-900.eot);
+    src: url(font-awesome/fa-solid-900.eot?#iefix) format("embedded-opentype"), url(font-awesome/fa-solid-900.woff2) format("woff2"), url(font-awesome/fa-solid-900.woff) format("woff"), url(font-awesome/fa-solid-900.ttf) format("truetype"), url(font-awesome/fa-solid-900.svg#fontawesome) format("svg")
+}
+
+.fa,
+.fas {
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: 900
+}
+
+/**
+ * Swiper 8.4.5
+ * https://swiperjs.com
+ */
+@font-face {
+    font-family: swiper-icons;
+    src: url('data:application/font-woff;charset=utf-8;base64, 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')
+}
+
+.swiper {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1
+}
+
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box
+}
+
+.swiper-android .swiper-slide,
+.swiper-wrapper {
+    transform: translateZ(0)
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform
+}
+
+.swiper-slide-invisible-blank {
+    visibility: hidden
+}
+
+:root {
+    --swiper-navigation-size: 44px
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    width: calc(var(--swiper-navigation-size)/ 44 * 27);
+    height: var(--swiper-navigation-size);
+    margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+    opacity: .35;
+    cursor: auto;
+    pointer-events: none
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-family: swiper-icons;
+    font-size: var(--swiper-navigation-size);
+    text-transform: none !important;
+    letter-spacing: 0;
+    font-variant: initial;
+    line-height: 1
+}
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+    left: 10px;
+    right: auto
+}
+
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
+    content: 'prev'
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+    right: 10px;
+    left: auto
+}
+
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+    content: 'next'
+}
+
+.swiper-pagination {
+    position: absolute;
+    text-align: center;
+    transition: .3s opacity;
+    transform: translateZ(0);
+    z-index: 10
+}
+
+.swiper-pagination.swiper-pagination-hidden {
+    opacity: 0
+}
+
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 10px;
+    left: 0;
+    width: 100%
+}
+
+.swiper-pagination-bullet {
+    width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 8px));
+    height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 8px));
+    display: inline-block;
+    border-radius: 50%;
+    background: var(--swiper-pagination-bullet-inactive-color, #000);
+    opacity: var(--swiper-pagination-bullet-inactive-opacity, .2)
+}
+
+button.swiper-pagination-bullet {
+    border: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    -webkit-appearance: none;
+    appearance: none
+}
+
+.swiper-pagination-clickable .swiper-pagination-bullet {
+    cursor: pointer
+}
+
+.swiper-pagination-bullet-active {
+    opacity: var(--swiper-pagination-bullet-opacity, 1);
+    background: var(--swiper-pagination-color, var(--swiper-theme-color))
+}
+
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px)
+}
+
+.swiper-lazy-preloader {
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -21px;
+    margin-top: -21px;
+    z-index: 10;
+    transform-origin: 50%;
+    box-sizing: border-box;
+    border: 4px solid var(--swiper-preloader-color, var(--swiper-theme-color));
+    border-radius: 50%;
+    border-top-color: transparent
+}
+
+.swiper:not(.swiper-watch-progress) .swiper-lazy-preloader {
+    animation: swiper-preloader-spin 1s infinite linear
+}
+
+@keyframes swiper-preloader-spin {
+    0% {
+        transform: rotate(0)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+*,
+:after,
+:before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0
+}
+
+*::-moz-selection {
+    color: inherit;
+    background-color: transparent
+}
+
+*::selection {
+    color: inherit;
+    background-color: transparent
+}
+
+*,
+:focus {
+    outline: inherit
+}
+
+body {
+    font-family: "Outfit", sans-serif;
+    color: rgba(210, 210, 208, .6);
+    font-weight: 300;
+    font-size: 14px;
+    background-color: #000
+}
+
+.mil-page-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 100vh
+}
+
+.mil-up {
+    opacity: 0;
+    transform: translateY(40px) scale(1.04)
+}
+
+.mil-transition-fade {
+    position: relative;
+    overflow: hidden
+}
+
+.mil-transition-fade .mil-transition-frame {
+    transition: .4s cubic-bezier(0, 0, .3642, 1);
+    filter: blur(0)
+}
+
+html.is-changing .mil-transition-fade {
+    transition: .4s cubic-bezier(0, 0, .3642, 1);
+    opacity: 1
+}
+
+html.is-animating .mil-transition-fade {
+    opacity: 0
+}
+
+html.is-animating .mil-transition-fade .mil-transition-frame {
+    filter: blur(15px)
+}
+
+html.is-changing .mil-onepage-nav {
+    transition: .4s cubic-bezier(0, 0, .3642, 1);
+    opacity: 1
+}
+
+html.is-animating .mil-onepage-nav {
+    opacity: 0
+}
+
+.mil-no-g {
+    padding: 0 15px
+}
+
+.mil-no-g * {
+    padding: 0
+}
+
+.mil-relative {
+    position: relative;
+    z-index: 1
+}
+
+.mil-df {
+    display: flex
+}
+
+.mil-aic {
+    display: flex;
+    align-items: center
+}
+
+.mil-jcb {
+    display: flex;
+    justify-content: space-between
+}
+
+@media (max-width:992px) {
+    .mil-992-gone {
+        display: none
+    }
+}
+
+@media (max-width:768px) {
+    .mil-768-tal {
+        text-align: left
+    }
+
+    .mil-768-gone {
+        display: none
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.mil-h1,
+.mil-h2,
+.mil-h3,
+.mil-h4,
+.mil-h5,
+.mil-h6 {
+    font-family: "Anton", sans-serif;
+    color: #d2d2d0;
+    font-weight: 100;
+    line-height: normal;
+    text-transform: uppercase;
+    letter-spacing: -2%
+}
+
+a {
+    text-decoration: none;
+    color: inherit
+}
+
+.mil-arrow-link:after {
+    display: inline-block;
+    margin-left: 10px;
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 500;
+    content: "\f061";
+    font-size: 12px;
+    transition: .2s cubic-bezier(0, 0, .3642, 1)
+}
+
+.mil-arrow-link.mil-a2 {
+    color: #eb1000
+}
+
+.mil-text-md {
+    font-size: 16px;
+    line-height: 160%
+}
+
+.mil-text-sm {
+    font-size: 14px;
+    line-height: 160%;
+    text-align: center
+}
+
+.mil-display3 {
+    font-size: calc(1rem + 3.3vw);
+    line-height: 100%
+}
+
+@media (min-width:1920px) {
+    .mil-display3 {
+        font-size: calc(1rem + 2.8vw)
+    }
+}
+
+@media (max-width:1200px) {
+    .mil-display3 {
+        font-size: calc(1rem + 4.3vw)
+    }
+}
+
+@media (max-width:992px) {
+    .mil-display3 {
+        font-size: calc(1rem + 5.3vw)
+    }
+}
+
+@media (max-width:768px) {
+    .mil-display3 {
+        font-size: calc(1rem + 6.3vw)
+    }
+}
+
+.mil-head1 {
+    font-size: 56px;
+    line-height: 120%
+}
+
+@media (max-width:768px) {
+    .mil-head1 {
+        font-size: 42px
+    }
+}
+
+.mil-head4 {
+    font-size: 24px;
+    line-height: 120%
+}
+
+.mil-stylized {
+    text-transform: uppercase;
+    line-height: 100%;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px
+}
+
+.mil-m1 {
+    color: #d2d2d0
+}
+
+.mil-a1 {
+    color: #eb1000
+}
+
+.mil-a2 {
+    color: #eb1000
+}
+
+.mil-deco-text {
+    border-left: solid 4px #eb1000;
+    padding-left: 30px
+}
+
+@media (max-width:992px) {
+    .mil-deco-text {
+        padding-left: 0;
+        border-left: none
+    }
+}
+
+.mil-max-1row-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical
+}
+
+.mil-rubber {
+    white-space: pre-wrap
+}
+
+.mil-letter-span,
+.mil-word-span {
+    display: inline-block
+}
+
+.mil-cursor-follower {
+    margin-top: -1.4%;
+    margin-left: -.9%;
+    transform: scale(1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color: rgba(210, 210, 208, .1);
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    z-index: 9999999;
+    transition: transform .4s cubic-bezier(.75, -1, .3, 2.33), background-color .4s cubic-bezier(0, 0, .3642, 1), -webkit-transform .4s cubic-bezier(.75, -1, .3, 2.33)
+}
+
+.mil-cursor-follower.mil-gone-active {
+    background-color: rgba(0, 0, 0, .1);
+    transform: scale(0)
+}
+
+@media (max-width:768px) {
+    .mil-cursor-follower {
+        display: none
+    }
+}
+
+::-webkit-scrollbar {
+    display: none
+}
+
+.mil-progress-track {
+    position: fixed;
+    z-index: 999999999999;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 4px;
+    background-color: #000
+}
+
+.mil-progress-track .mil-progress {
+    background-color: #eb1000;
+    height: 0;
+    width: 4px;
+    border-radius: 4px;
+    transition: .4s cubic-bezier(0, 0, .3642, 1)
+}
+
+@media screen and (max-width:768px) {
+    .mil-progress-track {
+        display: none
+    }
+}
+
+.mil-inner-scroll::-webkit-scrollbar {
+    width: 20px;
+    display: block;
+    padding-right: 10px
+}
+
+.mil-inner-scroll::-webkit-scrollbar-track {
+    background: 0 0
+}
+
+.mil-inner-scroll::-webkit-scrollbar-thumb {
+    background: #eb1000;
+    border: solid 8px #000;
+    border-radius: 15px
+}
+
+.mil-btn {
+    position: relative;
+    border: none;
+    cursor: pointer;
+    border-radius: 70px;
+    padding: 0 50px;
+    height: 70px;
+    font-family: "Outfit", sans-serif;
+    background-color: #000;
+    color: #d2d2d0;
+    text-transform: uppercase;
+    line-height: 100%;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    transition: .4s cubic-bezier(0, 0, .3642, 1)
+}
+
+.mil-btn.mil-btn-border {
+    background-color: transparent;
+    box-shadow: 0 0 0 2px #d2d2d0;
+    color: #d2d2d0
+}
+
+.mil-btn.mil-a2.mil-btn-border {
+    background-color: transparent;
+    box-shadow: 0 0 0 2px #eb1000;
+    color: #eb1000
+}
+
+.mil-btn.mil-m1 {
+    background-color: #181817
+}
+
+.mil-btn:hover {
+    transform: scale(1.03);
+    filter: brightness(110%)
+}
+
+@media (max-width:768px) {
+    .mil-btn {
+        height: 60px;
+        padding: 0 40px
+    }
+}
+
+.mil-stylized-btn {
+    width: 120px;
+    height: 120px;
+    background-color: #181817;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    transition: .4s cubic-bezier(0, 0, .3642, 1)
+}
+
+.mil-stylized-btn i {
+    margin-right: 20px;
+    font-size: 34px;
+    transform: rotate(45deg);
+    color: #d2d2d0;
+    transition: .4s cubic-bezier(0, 0, .3642, 1)
+}
+
+.mil-stylized-btn.mil-a1 {
+    background-color: #eb1000
+}
+
+.mil-stylized-btn span {
+    padding: 0 20px;
+    width: 100%;
+    text-transform: uppercase;
+    line-height: 100%;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #d2d2d0
+}
+
+.mil-social {
+    display: flex
+}
+
+.mil-social li {
+    list-style-type: none;
+    margin-right: 20px
+}
+
+.mil-social li:last-child {
+    margin-right: 0
+}
+
+.mil-social li a {
+    display: block;
+    font-size: 20px;
+    transition: .2s cubic-bezier(0, 0, .3642, 1)
+}
+
+.mil-social li a:hover {
+    color: #eb1000 !important
+}
+
+.mil-mb30 {
+    margin-bottom: 30px
+}
+
+.mil-mb60 {
+    margin-bottom: 60px
+}
+
+.mil-mb90 {
+    margin-bottom: 90px
+}
+
+.mil-p-160-160 {
+    padding-top: 160px;
+    padding-bottom: 160px
+}
+
+.mil-p-160-100 {
+    padding-top: 160px;
+    padding-bottom: 100px
+}
+
+.mil-p-0-130 {
+    padding-bottom: 130px
+}
+
+@media screen and (max-width:768px) {
+    .mil-p-160-160 {
+        padding-top: 120px;
+        padding-bottom: 120px
+    }
+
+    .mil-p-160-100 {
+        padding-top: 120px;
+        padding-bottom: 60px
+    }
+
+    .mil-p-0-130 {
+        padding-bottom: 90px
+    }
+
+    .mil-768-jcs {
+        justify-content: flex-start
+    }
+
+    br {
+        display: none
+    }
+}
+
+.mil-hero-6 {
+    position: relative;
+    overflow: hidden
+}
+
+.mil-hero-6 .mil-overlay {
+    height: 40vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0, #181817 80%)
+}
+
+.mil-hero-6 .mil-hero-main {
+    width: 100%;
+    padding-top: 160px
+}
+
+.mil-hero-6 .mil-hero-main .mil-hero-text {
+    position: relative;
+    height: calc(100vh - 160px);
+    display: flex;
+    align-items: center;
+    padding-bottom: 160px
+}
+
+.mil-hero-6 .mil-hero-portrait-frame {
+    height: calc(100vh - 160px);
+    width: 100%;
+    max-width: 80%;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    position: relative
+}
+
+.mil-hero-6 .mil-hero-portrait-frame .mil-hero-portrait {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 600px
+}
+
+.mil-hero-6 .mil-hero-portrait-frame .mil-hero-portrait img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: top;
+    object-position: top
+}
+
+.mil-hero-6 .mil-hero-portrait-frame .mil-circle-text-frame {
+    position: absolute;
+    background-color: transparent;
+    top: 20%;
+    left: -100px
+}
+
+.mil-hero-6 .mil-hero-portrait-frame .mil-circle-text-frame .mil-circle-text .mil-arrow {
+    background-color: #181817
+}
+
+.mil-hero-6 .mil-hero-portrait-frame .mil-circle-text-frame .mil-circle-text .mil-arrow i {
+    color: #d2d2d0
+}
+
+.mil-hero-6 .mil-hero-portrait-frame .mil-circle-text-frame .mil-circle-text svg text {
+    fill: #d2d2d0
+}
+
+@media screen and (max-width:1200px) {
+    .mil-hero-6 .mil-hero-portrait-frame {
+        max-width: 100%
+    }
+
+    .mil-hero-6 .mil-hero-main .mil-hero-text {
+        padding-bottom: 60px
+    }
+}
+
+@media screen and (max-width:992px) {
+    .mil-hero-6 .mil-hero-main {
+        padding-top: 100px
+    }
+
+    .mil-hero-6 .mil-hero-main .mil-hero-text {
+        height: auto;
+        padding: 120px 0
+    }
+
+    .mil-hero-6 .mil-hero-portrait-frame {
+        height: 100vw;
+        max-width: 100%
+    }
+
+    .mil-hero-6 .mil-hero-portrait-frame .mil-hero-portrait {
+        border-radius: 0
+    }
+}
+
+.mil-circle-text-frame {
+    z-index: 2;
+    background-color: #eb1000;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%
+}
+
+.mil-circle-text-frame .mil-circle-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    text-transform: uppercase;
+    line-height: 100%;
+    font-size: 12px;
+    font-weight: 600;
+    transform: rotate(45deg)
+}
+
+.mil-circle-text-frame .mil-circle-text svg {
+    transform: scale(1.5)
+}
+
+.mil-circle-text-frame .mil-circle-text svg text {
+    fill: #d2d2d0
+}
+
+.mil-circle-text-frame .mil-circle-text .mil-arrow {
+    transform: rotate(-45deg);
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d2d2d0
+}
+
+.mil-circle-text-frame .mil-circle-text .mil-arrow i {
+    font-size: 24px;
+    color: #eb1000
+}
+
+@media (max-width:992px) {
+    .mil-circle-text-frame {
+        display: none
+    }
+}
+
+.mil-top-panel-2 {
+    position: fixed;
+    width: 100%;
+    z-index: 9999999;
+    top: 0;
+    left: 0;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1px rgba(210, 210, 208, 0);
+    transition: .4s cubic-bezier(0, 0, .3642, 1)
+}
+
+.mil-top-panel-2.mil-scroll {
+    background-color: rgba(24, 24, 23, .7);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom: solid 1px rgba(210, 210, 208, .1);
+    height: 120px;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, .1))
+}
+
+.mil-top-panel-2.mil-menu-open {
+    height: 160px;
+    border-bottom: solid 1px rgba(210, 210, 208, .2);
+    background-color: transparent
+}
+
+.mil-top-panel-2.mil-menu-open .mil-onepage-nav {
+    opacity: 0
+}
+
+.mil-top-panel-2 .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.mil-top-panel-2 .mil-left-side .mil-logo {
+    width: 90px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #d2d2d0;
+    filter: none;
+    margin-right: 20px
+}
+
+.mil-top-panel-2 .mil-left-side .mil-logo span {
+    font-family: "Anton", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px
+}
+
+.mil-top-panel-2 .mil-buttons-tp-frame {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    transition: .4s cubic-bezier(0, 0, .3642, 1)
+}
+
+.mil-top-panel-2 .mil-buttons-tp-frame .mil-buttons {
+    display: flex;
+    align-items: center;
+    transform: translateX(20px)
+}
+
+@media (max-width:768px) {
+    .mil-top-panel-2 {
+        height: 100px;
+        background-color: rgba(24, 24, 23, .7);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        border-bottom: solid 1px rgba(210, 210, 208, .1);
+        filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, .1))
+    }
+
+    .mil-top-panel-2.mil-scroll,
+    .mil-top-panel-2.mil-menu-open {
+        height: 100px
+    }
+
+    .mil-top-panel-2 .mil-onepage-nav {
+        display: none
+    }
+}
+
+.mil-onepage-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 60px;
+    width: 100%;
+    transition: .4s cubic-bezier(0, 0, .3642, 1)
+}
+
+.mil-onepage-nav ul {
+    display: flex;
+    align-items: center
+}
+
+.mil-onepage-nav ul li {
+    list-style-type: none;
+    margin-right: 50px
+}
+
+.mil-onepage-nav ul li:last-child {
+    margin-right: 0
+}
+
+.mil-onepage-nav ul li a {
+    text-transform: uppercase;
+    line-height: 100%;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #d2d2d0
+}
+
+.mil-menu-btn {
+    padding: 20px 10px;
+    height: 22px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    transition: .4s cubic-bezier(0, 0, .3642, 1)
+}
+
+.mil-menu-btn span,
+.mil-menu-btn span:after,
+.mil-menu-btn span:before {
+    content: "";
+    pointer-events: none;
+    display: block;
+    border-radius: 1px;
+    width: 22px;
+    height: 2px;
+    background-color: #eb1000;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: inherit
+}
+
+.mil-menu-btn span {
+    position: relative
+}
+
+.mil-menu-btn span:after,
+.mil-menu-btn span:before {
+    position: absolute
+}
+
+.mil-menu-btn span:before {
+    top: -7px
+}
+
+.mil-menu-btn span:after {
+    top: 7px
+}
+
+.mil-menu-btn.mil-active span {
+    transform: rotate(45deg)
+}
+
+.mil-menu-btn.mil-active span:before {
+    transform: translate(0, 7px) rotate(-90deg)
+}
+
+.mil-menu-btn.mil-active span:after {
+    width: 22px;
+    transform: translate(0, -7px) rotate(-90deg)
+}
+
+.mil-menu-frame {
+    display: block;
+    background-color: transparent;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 998;
+    top: 0;
+    right: 0;
+    pointer-events: none;
+    transition: .6s cubic-bezier(0, 0, .3642, 1)
+}
+
+.mil-menu-frame.mil-active {
+    pointer-events: all;
+    background-color: rgba(210, 210, 208, .2);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px)
+}
+
+.mil-menu-frame-2 {
+    background-color: transparent;
+    filter: blur(10px);
+    transform: scale(1.1)
+}
+
+.mil-menu-frame-2 .mil-menu-window {
+    background-color: #000;
+    width: 100%;
+    transform: translateX(0);
+    opacity: 0;
+    padding-top: 160px
+}
+
+.mil-menu-frame-2 .mil-menu-window .mil-left-side {
+    background-color: #000;
+    position: relative;
+    z-index: 1
+}
+
+.mil-menu-frame-2 .mil-menu-window .mil-left-side .mil-menu-part {
+    padding-right: 160px;
+    height: calc(100vh - 280px);
+    display: flex;
+    align-items: center
+}
+
+.mil-menu-frame-2 .mil-menu-window .mil-left-side .mil-menu-part .mil-main-menu {
+    width: 100%;
+    padding-bottom: 30px
+}
+
+.mil-menu-frame-2 .mil-menu-window .mil-left-side .mil-bottom-part {
+    position: relative;
+    height: 120px;
+    display: flex;
+    align-items: center
+}
+
+.mil-menu-frame-2 .mil-menu-window .mil-right-side {
+    display: none
+}
+
+.mil-menu-frame-2.mil-active {
+    filter: blur(0);
+    transform: scale(1)
+}
+
+.mil-menu-frame-2.mil-active .mil-menu-window {
+    opacity: 1
+}
+
+@media (max-width:992px) {
+    .mil-menu-frame-2 .mil-menu-window .mil-left-side .mil-menu-part {
+        padding-right: 20px
+    }
+}
+
+.mil-main-menu {
+    min-height: calc(100vh - 711px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: .4s cubic-bezier(0, 0, .3642, 1)
+}
+
+@media (max-width:992px) {
+    .mil-main-menu {
+        min-height: calc(100vh - 361px)
+    }
+}
+
+@media (max-width:500px) {
+    .mil-main-menu {
+        min-height: calc(100vh - 341px)
+    }
+}
+
+.mil-main-menu li {
+    list-style-type: none;
+    margin-bottom: 30px;
+    position: relative
+}
+
+.mil-main-menu li:last-child {
+    margin-bottom: 0
+}
+
+.mil-main-menu li a {
+    text-transform: uppercase;
+    font-family: "Anton", sans-serif;
+    font-size: 22px;
+    color: #d2d2d0;
+    transition: .2s cubic-bezier(0, 0, .3642, 1)
+}
+
+.mil-main-menu li ul {
+    overflow: hidden;
+    max-height: 0;
+    transition: .4s cubic-bezier(0, 0, .3642, 1);
+    transition-delay: .2s
+}
+
+.mil-main-menu li ul li {
+    margin-bottom: 10px;
+    border-left: solid 4px #181817;
+    padding-left: 30px;
+    opacity: 0;
+    transition: .4s cubic-bezier(0, 0, .3642, 1);
+    transition-delay: 0s
+}
+
+.mil-main-menu li ul li:first-child {
+    margin-top: 30px
+}
+
+.mil-main-menu li ul li a {
+    font-family: "Outfit", sans-serif;
+    color: #d2d2d0;
+    text-transform: uppercase;
+    line-height: 100%;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px
+}
+
+.mil-main-menu li ul li:hover {
+    border-left: solid 4px #eb1000
+}
+
+.mil-main-menu li ul li:hover a {
+    padding-left: 5px
+}
+
+.mil-main-menu li.mil-has-children.mil-active ul {
+    transition-delay: 0s
+}
+
+.mil-main-menu li.mil-has-children.mil-active ul li {
+    opacity: 1;
+    transition-delay: .2s
+}
+
+.mil-half-container {
+    display: flex
+}
+
+.mil-half-container .mil-text-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+    width: 50%;
+    padding-right: 10%
+}
+
+.mil-half-container .mil-text-box.mil-g-m4:before {
+    background: linear-gradient(-300deg, #1a1a1a 0, #0a0a 100%)
+}
+
+.mil-half-container .mil-image-box {
+    min-height: 40vw;
+    width: 50%;
+    position: relative;
+    z-index: 9
+}
+
+.mil-half-container .mil-image-box .mil-image-frame {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    height: 100%
+}
+
+.mil-half-container .mil-image-box .mil-image-frame img,
+.mil-half-container .mil-image-box .mil-image-frame video {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    object-position: center
+}
+
+.mil-half-container .mil-image-box .mil-image-frame .mil-overlay {
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(210, 210, 208, .15);
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.mil-half-container.mil-stl .mil-image-box {
+    width: 50%;
+    position: relative
+}
+
+.mil-half-container.mil-stl .mil-image-box .mil-image-frame .mil-overlay {
+    background-color: rgba(0, 0, 0, .3)
+}
+
+@media (max-width:992px) {
+    .mil-half-container {
+        flex-direction: column
+    }
+
+    .mil-half-container .mil-text-box {
+        padding-right: 30px;
+        padding-left: 30px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center
+    }
+
+    .mil-half-container .mil-image-box {
+        width: 100%;
+        padding-bottom: 100%
+    }
+
+    .mil-half-container .mil-image-box .mil-image-frame {
+        width: 100%
+    }
+
+    .mil-half-container.mil-stl .mil-image-box {
+        width: 100%
+    }
+}
+
+.mil-button-pad {
+    position: relative;
+    height: 120px;
+    padding: 0 30px;
+    display: inline-flex;
+    align-items: center
+}
+
+.mil-button-pad.mil-a2 {
+    background-color: #eb1000
+}
+
+.mil-button-pad:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background-color: #181817;
+    height: 100%;
+    width: 100vw
+}
+
+.mil-button-pad.mil-jst:before {
+    display: none
+}
+
+@media (max-width:992px) {
+    .mil-button-pad {
+        width: 100%;
+        justify-content: center
+    }
+
+    .mil-button-pad:before {
+        display: none
+    }
+}
+
+.mil-work-card {
+    position: relative;
+    overflow: hidden
+}
+
+.mil-work-card .mil-cover {
+    position: relative;
+    overflow: hidden
+}
+
+.mil-work-card .mil-cover.mil-land {
+    padding-bottom: 65%
+}
+
+.mil-work-card .mil-cover.mil-port {
+    padding-bottom: 130%
+}
+
+.mil-work-card .mil-cover.mil-square {
+    padding-bottom: 100%
+}
+
+.mil-work-card .mil-cover .mil-hover-frame {
+    transform: scale(1.04);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: .4s cubic-bezier(0, 0, .3642, 1)
+}
+
+.mil-work-card .mil-cover .mil-hover-frame img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    object-position: center
+}
+
+.mil-work-card .mil-hover-overlay {
+    background-color: rgba(205, 81, 47, .7);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: .4s cubic-bezier(0, 0, .3642, 1)
+}
+
+.mil-work-card .mil-hover-overlay .mil-descr {
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #d2d2d0;
+    transform: translateY(40px) scale(1.04);
+    transition: .4s cubic-bezier(0, 0, .3642, 1)
+}
+
+.mil-work-card .mil-hover-overlay .mil-descr .mil-text-frame {
+    padding: 0 60px;
+    width: 100%
+}
+
+.mil-work-card.mil-stl .mil-hover-overlay {
+    background-image: url(../img/team/overlay.webp);
+    background-color: transparent
+}
+
+.mil-work-card.mil-stl .mil-hover-overlay .mil-descr {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0, #000 73.5%)
+}
+
+.mil-work-card:hover .mil-hover-frame {
+    transform: scale(1)
+}
+
+.mil-work-card:hover .mil-hover-overlay {
+    opacity: 1
+}
+
+.mil-work-card:hover .mil-hover-overlay .mil-descr {
+    transform: none
+}
+
+.mil-footer {
+    position: relative
+}
+
+.mil-footer:before {
+    content: "";
+    height: 40vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0, rgba(24, 24, 23, .5) 80%)
+}
+
+.mil-footer-menu-frame {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: solid 1px rgba(210, 210, 208, .2);
+    border-bottom: solid 1px rgba(210, 210, 208, .2);
+    height: 120px
+}
+
+.mil-footer-menu-frame .mil-social li a {
+    color: #d2d2d0
+}
+
+@media (max-width:1920px) {
+    .mil-footer-menu-frame {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 60px 0
+    }
+}
+
+@media (max-width:500px) {
+    .mil-footer-menu-frame .mil-footer-menu {
+        flex-direction: column;
+        align-items: center
+    }
+
+    .mil-footer-menu-frame .mil-footer-menu li {
+        margin-right: 0;
+        margin-bottom: 30px
+    }
+}
+
+.mil-footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+@media (max-width:500px) {
+    .mil-footer-bottom {
+        flex-direction: column;
+        align-items: flex-start
+    }
+}
+
+.mil-onepage-nav ul li {
+    position: relative
+}
+
+.mil-onepage-nav ul li.mil-has-children>a:after {
+    content: '\f078';
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    margin-left: 8px;
+    font-size: 10px;
+    transition: transform .3s ease
+}
+
+.mil-onepage-nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #181817;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+    width: 240px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, top .3s ease, visibility .3s;
+    flex-direction: column;
+    align-items: flex-start
+}
+
+.mil-onepage-nav ul li:hover>ul {
+    display: block;
+    top: 100%;
+    opacity: 1;
+    visibility: visible
+}
+
+.mil-onepage-nav ul li:hover>a:after {
+    transform: rotate(180deg)
+}
+
+.mil-onepage-nav ul li ul li {
+    margin-right: 0;
+    margin-bottom: 8px;
+    width: 100%
+}
+
+.mil-onepage-nav ul li ul li:last-child {
+    margin-bottom: 0
+}
+
+.mil-onepage-nav ul li ul li a {
+    padding: 10px 15px;
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    transition: background-color .3s ease, color .3s ease;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .5px
+}
+
+.mil-onepage-nav ul li ul li a:hover {
+    background-color: #eb1000;
+    color: #d2d2d0
+}
